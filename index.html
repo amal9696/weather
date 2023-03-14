@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body background="./picsin/beafebc0d7911ea07b2f457cf5a25f30.gif">
+    <div class="container mt-5 text-center" style="max-width: 500px;">
+        <h1 class="text-warning" style="font-weight: 700; font-size: 50px;">Weather updates</h1>
+        <input id="cname" class="form-control text-muted  p-2 mt-2 shadow-sm " style="border-radius: 1em;" type="text" placeholder="Enter city">
+        <button type="button" onclick="search()" class="btn btn-outline-warning mt-3">search</button>
+    </div>
+   <div class="container mt-4 mb-5" style="max-width: 400px; min-width: 300px;" >
+        <div id="result" class="card  rounded-5  shadow-lg back-card">
+            
+
+        </div>
+   </div>
+</body>
+<script>  
+    function search(){
+        city=cname.value
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5b4bee0ba241d092159faf007e166080`).then(data=>data.json()).then(dataa=>displayData(dataa))
+}
+        function displayData(weatherDetails){
+        cityName=weatherDetails.name
+        temp=Math.round((weatherDetails.main.temp)-273.15)
+        maxTemp=Math.round((weatherDetails.main.temp_max)-273.15)
+        minTemp=Math.round((weatherDetails.main.temp_min)-273.15)
+        FeelsLike=Math.round((weatherDetails.main.feels_like)-273.15)
+        Humidity=weatherDetails.main.humidity
+        
+        result.innerHTML=`
+        <div class= "card-top text-center">
+                <div class="city-name mt-1" style="position: absolute; width: 100%;">
+                    <p style="font-size: 20pt; font-weight: 400; color: rgb(0, 49, 112); font-family:monospace;">${cityName}</p>     
+                </div>
+                <img src="" alt="" class="card-img-top time">
+            </div>
+            <div class="card-body">
+                <div class="card-mid row" style="line-height: 0.5;">
+                    <div class="col text-center temp">
+                        <span style="color: rgb(14, 33, 44); font-weight: 500; white-space: nowrap; font-size: 5em; letter-spacing: -2px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">${temp}&deg;C</span>
+                    </div>
+                    <div class="col-4 condition-temp" style=" text-transform: capitalize;">
+                        <p style="color: rgb(26, 26, 26);  font-weight: 700;font-size: 16px;">Temperature</p>
+                        <p style="color: rgb(26, 26, 26);  font-weight: 500;font-size: small;">(Max & Min)</p>
+                        <p style="font-size: large; font-weight: 400;"><img style="line-height: 2em; width: 10px; height: 15px; display: inline-block; position: relative;" src=""alt=""> ${maxTemp}&deg;C</p>
+                        <p style="font-size: large; font-weight: 400;"><img style="line-height: 2em; width: 10px; height: 15px; display: inline-block; position: relative;" src="" alt=""> ${minTemp}&deg;C</p>
+                    </div>
+                </div>
+    
+                <div class="icon-container card shadow mx-auto" style="border-radius: 100%; width: 100px; height: 100px; background: #fff020;">
+                    <img style="text-align:center; width:60px; height: 60px; margin: auto" src="" alt="">
+                </div>
+                <div class="card-bottom px-5 py-4 row"  style="line-height: 0.5;">
+                    <div class="col text-center">
+                        <p style="font-size: 30px; font-weight: 400;">${FeelsLike}&deg;C</p>
+                        <span style="font-size: 15px; font-family:monospace;">Feels Like</span>
+                    </div>
+                    <div class="col text-center">
+                        <p style="font-size: 30px; font-weight: 400;">${Humidity}%</p>
+                        <span style="font-size: 15px; font-family:monospace;">Humidity</span>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+
+</script>
+</html>
