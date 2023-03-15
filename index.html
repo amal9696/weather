@@ -10,7 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
-<body background="./picsin/beafebc0d7911ea07b2f457cf5a25f30.gif">
+<body background="./picsin/im3.jpg"  >
+    
+    
     <div class="container mt-5 text-center" style="max-width: 500px;">
         <h1 class="text-warning" style="font-weight: 700; font-size: 50px;">Weather updates</h1>
         <input id="cname" class="form-control text-muted  p-2 mt-2 shadow-sm " style="border-radius: 1em;" type="text" placeholder="Enter city">
@@ -38,10 +40,10 @@
         
         result.innerHTML=`
         <div class= "card-top text-center">
-                <div class="city-name mt-1" style="position: absolute; width: 100%;">
-                    <p style="font-size: 20pt; font-weight: 400; color: rgb(0, 49, 112); font-family:monospace;">${cityName}</p>     
+            <div class="city-name mt-1" style="position: absolute; width: 100%;">
+                    <p style="font-size: 20pt; font-weight: 400; color: black; font-family:monospace;">${cityName}</p>     
                 </div>
-                <img src="" alt="" class="card-img-top time">
+                <img src="./images1.jpg" alt="" class="card-img-top time">
             </div>
             <div class="card-body">
                 <div class="card-mid row" style="line-height: 0.5;">
@@ -51,13 +53,13 @@
                     <div class="col-4 condition-temp" style=" text-transform: capitalize;">
                         <p style="color: rgb(26, 26, 26);  font-weight: 700;font-size: 16px;">Temperature</p>
                         <p style="color: rgb(26, 26, 26);  font-weight: 500;font-size: small;">(Max & Min)</p>
-                        <p style="font-size: large; font-weight: 400;"><img style="line-height: 2em; width: 10px; height: 15px; display: inline-block; position: relative;" src=""alt=""> ${maxTemp}&deg;C</p>
-                        <p style="font-size: large; font-weight: 400;"><img style="line-height: 2em; width: 10px; height: 15px; display: inline-block; position: relative;" src="" alt=""> ${minTemp}&deg;C</p>
+                        <p style="font-size: large; font-weight: 400;"><img style="line-height: 2em; width: 10px; height: 15px; display: inline-block; position: relative;" src="./picsin/w1.png"alt=""> ${maxTemp}&deg;C</p>
+                        <p style="font-size: large; font-weight: 400;"><img style="line-height: 2em; width: 10px; height: 15px; display: inline-block; position: relative;" src="./picsin/w1.png" alt=""> ${minTemp}&deg;C</p>
                     </div>
                 </div>
     
                 <div class="icon-container card shadow mx-auto" style="border-radius: 100%; width: 100px; height: 100px; background: #fff020;">
-                    <img style="text-align:center; width:60px; height: 60px; margin: auto" src="" alt="">
+                    <img style="text-align:center; width:60px; height: 60px; margin: auto" src="./picsin/w2.jpg" alt="">
                 </div>
                 <div class="card-bottom px-5 py-4 row"  style="line-height: 0.5;">
                     <div class="col text-center">
